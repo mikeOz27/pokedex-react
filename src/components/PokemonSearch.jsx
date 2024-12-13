@@ -11,13 +11,16 @@ const PokemonSearch = (params) => {
     const [loadClass, setLoadClass] = useState('')
     const img = 'public/img/loading2.gif'
 
-    const  {pokemons} = params
+    const  {pokemons, filter, search, list, total, offset, limit, goPage, setFilter, setList} = params
 
-    const [list, setList] = useState(pokemons);
+    // const [list, setList] = useState(pokemons);
 
     const getPokemon = async () => {
-        await api.get(params.pokemon.url)
+      list.forEach(element => {
+        console.log(element.url)
+          api.get(element.url)
             .then((response) => {
+                console.log(response.data)
                 setPokemon(response.data)
                 if(response.data.sprites.other['dream_world'].front_default !== null)
                     setImage(response.data.sprites.other['dream_world'].front_default)
@@ -26,10 +29,16 @@ const PokemonSearch = (params) => {
                     setCardClass('')
                     setLoadClass('d-done')
             })
+          });
     }
+
+    useEffect(() => {
+      getPokemon()
+    }, [])
+
   return (
     <div className="container">
-      {/* Search Bar */}
+      Search Bar
       <div className="row">
         <div className="col s12">
           <div className="input-field">
@@ -53,7 +62,7 @@ const PokemonSearch = (params) => {
           <div key={index} className="col s12 m6 l4">
             <div className="card hoverable">
               <div className="card-image">
-                <img src={pokemon.image} alt={pokemon.name} />
+                <img src={imagen} alt={pokemon.name} />
                 <span className="card-title">{pokemon.name}</span>
               </div>
               <div className="card-content">

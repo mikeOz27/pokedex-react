@@ -6,7 +6,7 @@ import api from '../services/api';
 import env from '../constants/Constanst';
 import PokeTarject from './PokeCard';
 import '../../src/index.css'
-// import PokemonSearch from './PokemonSearch';
+import PokemonSearch from './PokemonSearch';
 // import 'materialize-css/dist/css/materialize.min.css';
 // import 'materialize-css/dist/js/materialize.min.js';
 
@@ -19,7 +19,7 @@ function Pokemon() {
     const [filter, setFilter] = useState('');
 
     const [offset, setOffset] = useState(0);
-    const [limit] = useState(20);
+    const [limit] = useState(21);
     const [total, setTotal] = useState(0);
 
     const getPokemons = async (o) => {
@@ -74,26 +74,28 @@ function Pokemon() {
     return (
         <>
             <CT className="shadow bg ">
-                {/* <PokemonSearch pokemons={pokemons} /> */}
+                {/* <PokemonSearch pokemons={pokemons} list={list} total={total} filter={filter} search={search} limit={limit} /> */}
                 <Row>
+                    <Col>
                     <Grid2>
-                        <InputGroup>
-                            <TextField
-                                id="outlined-basic"
-                                label="Pokemon"
-                                variant="outlined"
-                                value={filter}
-                                onChange={(e) => setFilter(e.target.value)}
-                                placeholder="Search Pokemon"
-                                onKeyUpCapture={search}
-                                InputProps={{
-                                    startAdornment: <InputAdornment position="start" />,
-                                }}
-                                className='animate__animated animate__backInDown'
-                            />
-                        </InputGroup>
+                        <TextField
+                            id="outlined-basic"
+                            label="Pokemon"
+                            variant="outlined"
+                            value={filter}
+                            onChange={(e) => setFilter(e.target.value)}
+                            placeholder="Search Pokemon"
+                            onKeyUpCapture={search}
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start" />,
+                            }}
+                            className='animate__animated animate__backInDown'
+                            // fullWidth
+                        />
                     </Grid2>
+                    </Col>
                 </Row>
+                
                 <br />
                 <Row className="mt-3">
                     {list.map((pokemon, index) => (
@@ -111,6 +113,7 @@ function Pokemon() {
                     }
                 </Row>
             </CT>
+
         </>
     );
 }

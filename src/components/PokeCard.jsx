@@ -25,8 +25,10 @@ const PokeTarject = (params) => {
                 setPokemon(response.data)
                 if(response.data.sprites.other['dream_world'].front_default !== null)
                     setImage(response.data.sprites.other['dream_world'].front_default)
-                else
-                    setImage(response.data.sprites.other['official-artwork'].front_default)
+                else if(response.data.sprites.other['official-artwork'].front_default !== null)
+                        setImage(response.data.sprites.other['official-artwork'].front_default)
+                    else
+                        setImage('public/img/pokeball.png')
                     setCardClass('')
                     setLoadClass('d-done')
             })
