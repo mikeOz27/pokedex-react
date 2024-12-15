@@ -5,11 +5,6 @@ import { PaginationControl } from 'react-bootstrap-pagination-control';
 import api from '../services/api';
 import env from '../constants/Constanst';
 import PokeTarject from './PokeCard';
-import '../../src/index.css'
-import PokemonSearch from './PokemonSearch';
-// import 'materialize-css/dist/css/materialize.min.css';
-// import 'materialize-css/dist/js/materialize.min.js';
-
 
 function Pokemon() {
     const API_URL = import.meta.env.VITE_API_URL;
@@ -39,23 +34,25 @@ function Pokemon() {
         setAllPokemons(pokemonId.data.results);
     }
 
+    // PAGINACION
     const goPage = async (page) => {
         setList([]);
         await getPokemons((page === 1 ? 0 : (page - 1) * limit));
         setOffset(page);
     }
 
+    //FUNCION BUSCAR
     const search = (event) => {
         if (event.keyCode === 13) {
             if (filter.trim() !== '')
                 setList([]);
-                setTimeout(() => {
-                    setList(
-                        allPokemons.filter(
-                            (pokemon) => pokemon.name.includes(filter.toLowerCase()
-                            ))
-                    );
-                }, 100);
+            setTimeout(() => {
+                setList(
+                    allPokemons.filter(
+                        (pokemon) => pokemon.name.includes(filter.toLowerCase()
+                        ))
+                );
+            }, 100);
         } else if (filter.trim() === '') {
             setList([]); // Restaura la lista original si no hay filtro
             setTimeout(() => {
@@ -67,53 +64,47 @@ function Pokemon() {
     useEffect(() => {
         getPokemons(offset);
         getAllPokemons();
+
     }, []);
-
-
 
     return (
         <>
-            <CT className="shadow bg ">
-                {/* <PokemonSearch pokemons={pokemons} list={list} total={total} filter={filter} search={search} limit={limit} /> */}
+            <CT className="">
                 <Row>
                     <Col>
-                    <Grid2>
-                        <TextField
-                            id="outlined-basic"
-                            label="Pokemon"
-                            variant="outlined"
-                            value={filter}
-                            onChange={(e) => setFilter(e.target.value)}
-                            placeholder="Search Pokemon"
-                            onKeyUpCapture={search}
-                            InputProps={{
-                                startAdornment: <InputAdornment position="start" />,
-                            }}
-                            className='animate__animated animate__backInDown'
-                            // fullWidth
-                        />
-                    </Grid2>
+                        <Grid2>
+                            <TextField
+                                id="outlined-basic"
+                                label="Pokemon"
+                                variant="outlined"
+                                value={filter}
+                                onChange={(e) => setFilter(e.target.value)}
+                                placeholder="Search Pokemon"
+                                onKeyUpCapture={search}
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start" />,
+                                }}
+                                className='animate__animated animate__backInDown'
+                            />
+                        </Grid2>
                     </Col>
                 </Row>
-                
                 <br />
                 <Row className="mt-3">
                     {list.map((pokemon, index) => (
                         <PokeTarject key={index} pokemon={pokemon} />
                     ))}
-                    {list.length === 0 ? <Col className="text-center">No se encontraron resultados</Col> : 
+                    {list.length === 0 ? <Col className="text-center">No se encontraron resultados</Col> :
                         <PaginationControl
                             last={true}
                             limit={limit}
                             total={total}
                             page={offset} // Página actual
-                            // changePage={handlePageChange} // Cambia la página
                             changePage={page => goPage(page)} // Cambia la página
                         />
                     }
                 </Row>
             </CT>
-
         </>
     );
 }

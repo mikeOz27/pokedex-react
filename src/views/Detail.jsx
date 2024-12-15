@@ -5,8 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 import PokeCard from '../components/PokeCard'
 import { Col, Container, Row, Card, CardImg, Badge, CardBody, CardText, Progress } from 'reactstrap'
 import env from '../constants/Constanst'
-import '../../src/index.css'
-
+// import '../../src/index.css'
 function Detail() {
   const API_URL = import.meta.env.VITE_API_URL;
   const { id } = useParams()
