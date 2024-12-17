@@ -4,7 +4,7 @@ import { Col, Badge, CardTitle, CardFooter } from 'reactstrap'
 import { Card as Cr, CardContent, CardMedia } from '@mui/material'
 import { Link } from 'react-router-dom'
 
-const PokeTarject = (params) => {
+const PokeCard = (params) => {
 
     const [pokemon, setPokemon] = useState([])
     const [imagen, setImage] = useState('')
@@ -47,7 +47,7 @@ const PokeTarject = (params) => {
                     </Cr>
                 ) : (
                     <Link style={{ cursor: 'pointer', backgroundColor: 'transparent' }} to={`/pokemon/${pokemon.name}`} className='link-sub card'>
-                        <Cr className={`card-hover shadow border-4 circle `} style={{ borderRadius: '70px', overflow: 'hidden', borderRadius: '0%', backgroundColor: '#ffffff38' }}>
+                        <Cr className={`card-hover shadow border-4 circle `} style={{ overflow: 'hidden', borderRadius: '0%', backgroundColor: '#ffffff38' }}>
                             <div className="card__circle"></div>
                             <CardMedia component="img" image={imagen} height='150' alt="Card image cap" className='p-2' style={{ borderRadius: '15px 15px 0 0', objectFit: 'contain', width: '100%' }} />
                             <CardContent className="text-center" style={{ padding: '16px' }}>
@@ -74,4 +74,4 @@ const PokeTarject = (params) => {
     )
 }
 
-export default PokeTarject
+export default PokeCard

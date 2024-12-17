@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Container as CT, Row, Col, InputGroup } from 'reactstrap';
-import { TextField, InputAdornment, Grid2 } from "@mui/material";
+import { TextField, InputAdornment, Grid2, Pagination } from "@mui/material";
 import { PaginationControl } from 'react-bootstrap-pagination-control';
 import api from '../services/api';
 import env from '../constants/Constanst';
-import PokeTarject from './PokeCard';
+import PokeCard from './PokeCard';
 
 function Pokemon() {
     const API_URL = import.meta.env.VITE_API_URL;
@@ -92,7 +92,7 @@ function Pokemon() {
                 <br />
                 <Row className="mt-3">
                     {list.map((pokemon, index) => (
-                        <PokeTarject key={index} pokemon={pokemon} />
+                        <PokeCard key={index} pokemon={pokemon} />
                     ))}
                     {list.length === 0 ? <Col className="text-center">No se encontraron resultados</Col> :
                         <PaginationControl

@@ -65,7 +65,7 @@ button:focus-visible {
   background-attachment: fixed; */
   padding: 0;
     /* margin-bottom: 80px; */
-    background: #F5C556;
+  background-color: #ffc107;
 }
 
 .card {
