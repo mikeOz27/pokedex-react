@@ -63,7 +63,7 @@ button:focus-visible {
   height: 100%;
   z-index: -1;
   background-attachment: fixed; */
-  padding: 0;
+  /* padding: 0; */
     /* margin-bottom: 80px; */
   background-color: #ffc107;
 }

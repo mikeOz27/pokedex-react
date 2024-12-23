@@ -1,8 +1,8 @@
 import { BrowserRouter as BR, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
 import Index from './views/Index'
 import Detail from './views/Detail'
 import Pokemon from './components/Pokemon'
+import './App.css'
 
 function App() {
 

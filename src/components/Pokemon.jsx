@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Container as CT, Row, Col, InputGroup } from 'reactstrap';
-import { TextField, InputAdornment, Grid2, Pagination } from "@mui/material";
+import { useState, useEffect } from 'react';
+import { Container as CT, Row, Col } from 'reactstrap';
+import { TextField, InputAdornment, Grid2 } from "@mui/material";
 import { PaginationControl } from 'react-bootstrap-pagination-control';
 import api from '../services/api';
 import env from '../constants/Constanst';
