@@ -149,7 +149,7 @@ function Detail() {
           <CardBody className="mt-3">
             <Row>
               <Col className="text-end">
-                <Link to="/pokemons" className="btn btn-primary">
+                <Link to="/" className="btn btn-primary">
                   {/* <i className="fa-solid fa-home"></i> */}
                   <i className="nes-pokeball"></i>
                 </Link>

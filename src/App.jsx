@@ -1,5 +1,5 @@
 import { BrowserRouter as BR, Routes, Route } from 'react-router-dom'
-import Index from './views/Index'
+// import Index from './views/Index'
 import Detail from './views/Detail'
 import Pokemon from './components/Pokemon'
 import './App.css'
@@ -14,13 +14,12 @@ function App() {
     <>
       <BR>
         <Routes>
-          <Route path='/' element={<Index />} />
-          <Route path='/pokemon/:id' element={<Detail />} />
-          <Route path='/pokemons/' element={<Pokemon />} />
+          <Route path="/" element={<Pokemon />} />
+          <Route path="/pokemon/:id" element={<Detail />} />
         </Routes>
       </BR>
     </>
-  )
+  );
 }
 
 export default App

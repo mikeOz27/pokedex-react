@@ -5,6 +5,7 @@ import { PaginationControl } from 'react-bootstrap-pagination-control';
 import api from '../services/api';
 import env from '../constants/Constanst';
 import PokeCard from './PokeCard';
+import Header from './Header';
 
 function Pokemon() {
     const API_URL = import.meta.env.VITE_API_URL;
@@ -64,11 +65,12 @@ function Pokemon() {
     useEffect(() => {
         getPokemons(offset);
         getAllPokemons();
-
     }, []);
 
     return (
       <>
+      <Header />
+      <br />
         <CT className="">
           <Row>
             <Col>
