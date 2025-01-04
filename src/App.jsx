@@ -3,6 +3,10 @@ import Index from './views/Index'
 import Detail from './views/Detail'
 import Pokemon from './components/Pokemon'
 import './App.css'
+// style.scss
+import "nes.css/css/nes.css"
+// script.js
+import "nes.css/css/nes.min.css";
 
 function App() {
 

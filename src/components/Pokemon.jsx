@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Container as CT, Row, Col } from 'reactstrap';
-import { TextField, InputAdornment, Grid2 } from "@mui/material";
+import { Grid2, TextField } from "@mui/material";
 import { PaginationControl } from 'react-bootstrap-pagination-control';
 import api from '../services/api';
 import env from '../constants/Constanst';
@@ -68,44 +68,62 @@ function Pokemon() {
     }, []);
 
     return (
-        <>
-            <CT className="">
-                <Row>
-                    <Col>
-                        <Grid2>
-                            <TextField
-                                id="outlined-basic"
-                                label="Pokemon"
-                                variant="outlined"
-                                value={filter}
-                                onChange={(e) => setFilter(e.target.value)}
-                                placeholder="Search Pokemon"
-                                onKeyUpCapture={search}
-                                InputProps={{
-                                    startAdornment: <InputAdornment position="start" />,
-                                }}
-                                className='animate__animated animate__backInDown'
-                            />
-                        </Grid2>
-                    </Col>
-                </Row>
-                <br />
-                <Row className="mt-3">
-                    {list.map((pokemon, index) => (
-                        <PokeCard key={index} pokemon={pokemon} />
-                    ))}
-                    {list.length === 0 ? <Col className="text-center">No se encontraron resultados</Col> :
-                        <PaginationControl
-                            last={true}
-                            limit={limit}
-                            total={total}
-                            page={offset} // Página actual
-                            changePage={page => goPage(page)} // Cambia la página
-                        />
-                    }
-                </Row>
-            </CT>
-        </>
+      <>
+        <CT className="">
+          <Row>
+            <Col>
+              <Grid2>
+                <TextField
+                  id="outlined-basic"
+                  label="Pokemon"
+                  variant="outlined"
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value)}
+                  placeholder="Search Pokemon"
+                  onKeyUpCapture={search}
+                  className="animate__animated animate__backInDown nes-input"
+                />
+                {/* <input
+                  id="outlined-basic"
+                  label="Pokemon"
+                //   variant="outlined"
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value)}
+                  placeholder="Search Pokemon"
+                  onKeyUpCapture={search}
+                  className="animate__animated animate__backInDown nes-input"
+                  style={{ backgroundColor: "#00000000" }}
+                /> */}
+              </Grid2>
+            </Col>
+          </Row>
+          <br />
+          <Row className="mt-3">
+            {list.map((pokemon, index) => (
+              <PokeCard key={index} pokemon={pokemon} />
+            ))}
+            {list.length === 0 ? (
+              <Col className="text-center">No se encontraron resultados</Col>
+            ) : (
+              <div className="d-flex justify-content-center mt-4">
+                <PaginationControl
+                  last={true}
+                  limit={limit}
+                  total={total}
+                  page={offset} // Página actual
+                  changePage={(page) => goPage(page)} // Cambia la página
+                  className="pagination"
+                  style={{
+                    backgroundColor: "#ffcf3d",
+                    borderColor: "#c5a545",
+                    borderRadius: "50%",
+                  }}
+                />
+              </div>
+            )}
+          </Row>
+        </CT>
+      </>
     );
 }
 
