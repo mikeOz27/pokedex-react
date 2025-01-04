@@ -100,7 +100,7 @@ function Pokemon() {
             </Col>
           </Row>
           <br />
-          <Row className="mt-3">
+          <Row className="mt-3" style={{ marginRight: "-73px" }}>
             {list.map((pokemon, index) => (
               <PokeCard key={index} pokemon={pokemon} />
             ))}
