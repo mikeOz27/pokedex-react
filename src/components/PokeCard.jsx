@@ -48,7 +48,7 @@ const PokeCard = (params) => {
                         />
                     </Cr>
                 ) : (
-                    <Link style={{ backgroundColor: 'transparent' }} to={`/pokemon/${pokemon.name}`} className='link-sub card'>
+                    <Link style={{ backgroundColor: 'transparent', textDecoration: "none" }} to={`/pokemon/${pokemon.name}`} className='link-sub card'>
                         <Cr className={`card-hover shadow border-4 circle `} style={{ overflow: 'hidden', borderRadius: '0%', backgroundColor: '#ffffff38' }}>
                             <div className="card__circle"></div>
                             <CardMedia component="img" image={imagen} height='150' alt="Card image cap" className='p-2' style={{ borderRadius: '15px 15px 0 0', objectFit: 'contain', width: '100%' }} />
@@ -57,9 +57,9 @@ const PokeCard = (params) => {
                                 <CardTitle style={{ fontWeight: 'bold', fontSize: '1.25rem' }}> 
                                     {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
                                 </CardTitle>
-                                <CardFooter className={cardClass} key={pokemon.id}>
+                                <CardFooter className={cardClass} key={pokemon.id} style={{border: "none"}}>
                                     {pokemon.types.map((type, index) => (
-                                        <Badge pill color="danger" key={type.type.name + index} style={{ marginRight: '4px' }} className={type.type.name}>
+                                        <Badge color="danger" key={type.type.name + index} style={{ marginRight: '4px' }} className={type.type.name}>
                                             {type.type.name}
                                         </Badge>
                                     ))}

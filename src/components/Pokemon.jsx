@@ -75,7 +75,7 @@ function Pokemon() {
           <Row>
             <Col>
               <Grid2>
-                <TextField
+                {/* <TextField
                   id="outlined-basic"
                   label="Pokemon"
                   variant="outlined"
@@ -84,8 +84,8 @@ function Pokemon() {
                   placeholder="Search Pokemon"
                   onKeyUpCapture={search}
                   className="animate__animated animate__backInDown nes-input"
-                />
-                {/* <input
+                /> */}
+                <input
                   id="outlined-basic"
                   label="Pokemon"
                 //   variant="outlined"
@@ -95,7 +95,7 @@ function Pokemon() {
                   onKeyUpCapture={search}
                   className="animate__animated animate__backInDown nes-input"
                   style={{ backgroundColor: "#00000000" }}
-                /> */}
+                />
               </Grid2>
             </Col>
           </Row>

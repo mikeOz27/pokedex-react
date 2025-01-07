@@ -11,14 +11,12 @@ import "nes.css/css/nes.min.css";
 function App() {
 
   return (
-    <>
-      <BR>
-        <Routes>
-          <Route path="/" element={<Pokemon />} />
-          <Route path="/pokemon/:id" element={<Detail />} />
-        </Routes>
-      </BR>
-    </>
+    <BR basename="/pokedex-react">
+      <Routes>
+        <Route path="/" element={<Pokemon />} />
+        <Route path="/pokemon/:id" element={<Detail />} />
+      </Routes>
+    </BR>
   );
 }
 
