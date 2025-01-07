@@ -11,7 +11,7 @@ import "nes.css/css/nes.min.css";
 function App() {
 
   return (
-    <BR basename="/pokedex-react">
+    <BR basename="/pokedex-react/">
       <Routes>
         <Route path="/" element={<Pokemon />} />
         <Route path="/pokemon/:id" element={<Detail />} />
