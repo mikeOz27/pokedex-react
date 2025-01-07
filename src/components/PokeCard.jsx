@@ -48,7 +48,7 @@ const PokeCard = (params) => {
                         />
                     </Cr>
                 ) : (
-                    <Link style={{ backgroundColor: 'transparent', textDecoration: "none" }} to={`/pokemon/${pokemon.name}`} className='link-sub card'>
+                    <Link style={{ backgroundColor: 'transparent', textDecoration: "none", border: "none" }} to={`/pokemon/${pokemon.name}`} className='link-sub card'>
                         <Cr className={`card-hover shadow border-4 circle `} style={{ overflow: 'hidden', borderRadius: '0%', backgroundColor: '#ffffff38' }}>
                             <div className="card__circle"></div>
                             <CardMedia component="img" image={imagen} height='150' alt="Card image cap" className='p-2' style={{ borderRadius: '15px 15px 0 0', objectFit: 'contain', width: '100%' }} />

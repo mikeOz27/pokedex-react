@@ -69,13 +69,13 @@ function Pokemon() {
 
     return (
       <>
-      <Header />
-      <br />
+        <Header />
+        <br />
         <CT className="">
           <Row>
             <Col>
               <Grid2>
-                {/* <TextField
+                <TextField
                   id="outlined-basic"
                   label="Pokemon"
                   variant="outlined"
@@ -84,17 +84,6 @@ function Pokemon() {
                   placeholder="Search Pokemon"
                   onKeyUpCapture={search}
                   className="animate__animated animate__backInDown nes-input"
-                /> */}
-                <input
-                  id="outlined-basic"
-                  label="Pokemon"
-                //   variant="outlined"
-                  value={filter}
-                  onChange={(e) => setFilter(e.target.value)}
-                  placeholder="Search Pokemon"
-                  onKeyUpCapture={search}
-                  className="animate__animated animate__backInDown nes-input"
-                  style={{ backgroundColor: "#00000000" }}
                 />
               </Grid2>
             </Col>
@@ -105,7 +94,9 @@ function Pokemon() {
               <PokeCard key={index} pokemon={pokemon} />
             ))}
             {list.length === 0 ? (
-              <Col className="text-center">No se encontraron resultados</Col>
+              <Col className="text-center">
+                <img src="src\assets\img\loading2.gif" alt="Cargando..." />
+              </Col>
             ) : (
               <div className="d-flex justify-content-center mt-4">
                 <PaginationControl
